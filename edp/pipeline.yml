@@ -1,0 +1,17 @@
+resources:
+- name: question-service
+  type: git
+  source:
+   branch: master
+   uri: https://github.com/spandanatv/EDP.git
+
+jobs:
+- name: Build
+  public: false
+  plan:
+    - get: question-service
+      trigger: true
+    - task: Build Code
+      file: /question-service/edp/build.yml
+ 
+     

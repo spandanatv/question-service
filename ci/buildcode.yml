@@ -1,0 +1,10 @@
+platform : linux
+image_resource:
+   type: docker-image
+   source: {repository: frekele/gradle}
+inputs:
+- name: question-service
+outputs:
+- name: artifacts
+run:
+  path: ./question-service/ci/buildcode.sh

@@ -1,0 +1,13 @@
+platform : linux
+image_resource:
+   type: docker-image
+   source:
+        repository: spandanatv/EDP
+ 
+inputs:
+- name: question-service
+- name: concourse
+outputs:
+- name: question-service-concourse
+run:
+  path: /question-service/edp/build.sh

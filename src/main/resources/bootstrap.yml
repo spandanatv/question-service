@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: question-service1
+  cloud:
+    config:
+      uri: ${vcap.services.config-service.credentials.uri:http://localhost:8888}
+  jpa:
+    hibernate: 
+      ddl-auto: update

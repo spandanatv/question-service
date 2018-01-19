@@ -1,0 +1,25 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "questions set",
+	"type": "object",
+	"properties": {
+		"questions": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"qno": {
+						"type": "string"
+					},
+					"q": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"qno",
+					"q"
+				]
+			}
+		}
+	}
+}

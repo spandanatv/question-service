@@ -1,0 +1,36 @@
+resources:
+- name: question-service
+  type: git
+  source:
+   branch: master
+   uri: http://shukoora:Vedams1234@192.168.2.4/Immerse/question-service.git
+
+- name: deploy-cf
+  type: cf
+  source:
+    api: http://api.system.biarca.com
+    username: shukoora@vedams.com
+    password: Vedams@1234
+    organization: Biarca
+    space: ipsum-dev
+    skip_cert_check: true
+jobs:
+- name: UnitTest
+  public: false
+  plan:
+    - get: question-service
+      trigger: true
+    - task: RunUnitTest
+      file: question-service/ci/buildtest.yml
+- name: Build
+  public: false
+  plan:
+    - get: question-service
+      passed: [UnitTest]
+      trigger: true
+    - task: Build Code
+      file: question-service/ci/buildcode.yml
+    - put: deploy-cf
+      params:
+        manifest: question-service/manifest.yml
+        path: artifacts/*.jar
