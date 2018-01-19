@@ -9,22 +9,21 @@ resources:
 - name: deploy-cf
   type: cf
   source:
-    api: http://api.system.biarca.com
-    username: shukoora@vedams.com
-    password: Vedams@1234
-    organization: Biarca
-    space: ipsum-dev
+    api: https://api.run.pivotal.io
+    username: tspandana43@gmail.com
+    password: Vedams@123
+    organization: immerse_test
+    space: development
     skip_cert_check: true
 jobs:
-- name: build
-  serial: true
+- name: Build
+  public: false
   plan:
-  - aggregate:
     - get: repo
-  - task: build
-    file: repo/edp/build.yml
-  - put: deploy-cf
-    params:
-       manifest: question-service/manifest.yml
-       path: artifacts/*.jar
-       PROJECT_TYPE: GRADLE
+      trigger: true
+    - task: Build Code
+      file: repo/edp/build.yml
+    - put: deploy-cf
+      params:
+        manifest: repo/manifest.yml
+	    PROJECT_TYPE: GRADLE
