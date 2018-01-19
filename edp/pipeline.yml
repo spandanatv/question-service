@@ -14,6 +14,6 @@ jobs:
   - aggregate:
     - get: repo
   - task: build
-    file: question-service/edp/build.yml
+    file: repo/edp/build.yml
     params:
       PROJECT_TYPE: GRADLE
