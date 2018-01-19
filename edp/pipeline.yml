@@ -3,7 +3,7 @@ resources:
   type: git
   source:
    branch: master
-   uri: https://github.com/spandanatv/EDP.git
+   uri: https://github.com/spandanatv/question-service.git
 
 jobs:
 - name: Build
