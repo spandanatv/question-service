@@ -1,4 +1,4 @@
 #!/bin/bash
 cd repo
-chmod +x ./gradlew clean build
+gradle clean assemble
 
