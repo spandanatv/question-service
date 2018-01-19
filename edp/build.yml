@@ -1,13 +1,22 @@
-platform : linux
+---
+platform: linux
 image_resource:
-   type: docker-image
-   source:
-        repository: spandanatv/question-service
- 
+  type: docker-image
+  source:
+    repository: openjdk
+    tag: 8-jdk
 inputs:
-- name: question-service
-- name: concourse
+  - name: repo
 outputs:
-- name: question-service-concourse
+  - name: out
 run:
-  path: /question-service/edp/build.sh
+  path: /bin/bash
+  args:
+    - repo/edp/build.sh
+ 
+caches:
+  - path: .gradle/
+  - path: .m2/
+ 
+params:
+  PROJECT_TYPE: GRADLE
