@@ -6,7 +6,15 @@ resources:
   source:
     uri: https://github.com/spandanatv/question-service.git
     branch: master
-
+- name: deploy-cf
+  type: cf
+  source:
+    api: http://api.system.biarca.com
+    username: shukoora@vedams.com
+    password: Vedams@1234
+    organization: Biarca
+    space: ipsum-dev
+    skip_cert_check: true
 jobs:
 - name: build
   serial: true
@@ -15,5 +23,8 @@ jobs:
     - get: repo
   - task: build
     file: repo/edp/build.yml
+  - put: deploy-cf
     params:
-      PROJECT_TYPE: GRADLE
+       manifest: question-service/manifest.yml
+       path: artifacts/*.jar
+       PROJECT_TYPE: GRADLE
