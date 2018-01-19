@@ -10,9 +10,7 @@ inputs:
 outputs:
   - name: out
 run:
-  path: /bin/bash
-  args:
-    - repo/edp/build.sh
+  path: repo/edp/buildcode.sh
  
 caches:
   - path: .gradle/
