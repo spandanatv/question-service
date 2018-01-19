@@ -1,4 +1,4 @@
 #!/bin/bash
-cd question-service
-gradle clean build
+cd repo
+./gradlew clean build
 
