@@ -19,4 +19,4 @@ caches:
   - path: .m2/
  
 params:
-  PROJECT_TYPE: GRADLE
+  PROJECT_TYPE: 

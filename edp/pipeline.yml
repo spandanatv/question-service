@@ -16,4 +16,4 @@ jobs:
   - task: build
     file: question-service/edp/build.yml
     params:
-      PROJECT_TYPE: ((project-type))
+      PROJECT_TYPE: GRADLE
