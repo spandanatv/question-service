@@ -1,9 +1,5 @@
 applications:
 - name: question-service1
   random-route: true
-  services:
-# - config-service
-# - eureka-service
-  - question-db1
   path: build/libs/question service-0.0.1-SNAPSHOT.jar
   buildpack: https://github.com/cloudfoundry/java-buildpack.git
