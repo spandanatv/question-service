@@ -26,4 +26,3 @@ jobs:
     - put: deploy-cf
       params:
         manifest: repo/manifest.yml
-        PROJECT_TYPE: GRADLE

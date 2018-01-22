@@ -13,10 +13,3 @@ run:
   path: /bin/bash
   args:
     - repo/edp/build.sh
- 
-caches:
-  - path: .gradle/
-  - path: .m2/
- 
-params:
-  PROJECT_TYPE:
